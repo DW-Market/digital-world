@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Digital World - Website Development, Digital Marketing, SEO, Paid Ads, Graphic Design and AI Automation." />
+  <title>Digital World | Digital Marketing Agency</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #050505;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(5, 5, 5, 0.95);
+      border-bottom: 1px solid #1c1c1c;
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.4rem;
+      font-weight: 800;
+    }
+
+    .brand span {
+      color: #43c542;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #43c542;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 9px;
+      font-weight: 700;
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #087edb, #49cf3d);
+      color: white;
+    }
+
+    .btn-outline {
+      border: 1px solid #3c3c3c;
+      margin-left: 10px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(0, 132, 255, 0.16), transparent 30%),
+        radial-gradient(circle at 85% 30%, rgba(77, 208, 61, 0.12), transparent 32%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid #2b6f34;
+      color: #79dc70;
+      padding: 7px 13px;
+      border-radius: 30px;
+      margin-bottom: 22px;
+      font-size: 0.85rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, #159df4, #53dc42);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: #aaa;
+      max-width: 680px;
+      font-size: 1.08rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-logo {
+      background: #000;
+      padding: 25px;
+      border-radius: 25px;
+      border: 1px solid #1f1f1f;
+      box-shadow: 0 0 70px rgba(0, 136, 255, 0.12);
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title span {
+      color: #55ce45;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      margin-top: 8px;
+    }
+
+    .section-title p {
+      color: #999;
+      max-width: 650px;
+      margin: 12px auto 0;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #0d0d0d;
+      border: 1px solid #202020;
+      border-radius: 18px;
+      padding: 28px;
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      border-color: #3d8a43;
+      transform: translateY(-4px);
+    }
+
+    .icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.25rem;
+    }
+
+    .card p {
+      color: #929292;
+      font-size: 0.95rem;
+    }
+
+    .about {
+      background: #090909;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      color: #aaa;
+      margin-bottom: 17px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .stat {
+      background: #101010;
+      border: 1px solid #242424;
+      padding: 25px;
+      border-radius: 15px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      color: #4dcc43;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      min-height: 240px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background:
+        linear-gradient(to top, rgba(0,0,0,.95), rgba(0,0,0,.15)),
+        linear-gradient(135deg, #075996, #173b24);
+      border-radius: 18px;
+      padding: 25px;
+      border: 1px solid #242424;
+    }
+
+    .project:nth-child(2) {
+      background:
+        linear-gradient(to top, rgba(0,0,0,.95), rgba(0,0,0,.15)),
+        linear-gradient(135deg, #265b10, #073866);
+    }
+
+    .project:nth-child(3) {
+      background:
+        linear-gradient(to top, rgba(0,0,0,.95), rgba(0,0,0,.15)),
+        linear-gradient(135deg, #123a77, #146228);
+    }
+
+    .project span {
+      color: #73df67;
+      font-size: 0.85rem;
+    }
+
+    .project h3 {
+      margin-top: 5px;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .step {
+      padding: 24px;
+      border-left: 2px solid #399d3b;
+      background: #0c0c0c;
+    }
+
+    .step strong {
+      color: #4fc947;
+      font-size: 1.4rem;
+    }
+
+    .lancer {
+      background: linear-gradient(135deg, #07172a, #071109);
+    }
+
+    .lancer-box {
+      padding: 50px;
+      border-radius: 24px;
+      border: 1px solid #225b30;
+      text-align: center;
+      background: rgba(0,0,0,.35);
+    }
+
+    .lancer h2 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      margin-bottom: 15px;
+    }
+
+    .lancer p {
+      color: #aaa;
+      max-width: 700px;
+      margin: 0 auto 25px;
+    }
+
+    .contact-box {
+      text-align: center;
+      padding: 60px 25px;
+      background: #0d0d0d;
+      border: 1px solid #262626;
+      border-radius: 24px;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: #aaa;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      padding: 35px 0;
+      border-top: 1px solid #202020;
+      color: #888;
+      text-align: center;
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-logo {
+        max-width: 500px;
+        margin: auto;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .services-grid,
+      .portfolio-grid,
+      .process-grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .hero {
+        padding: 55px 0;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+        margin: 6px 0;
+      }
+
+      .btn-outline {
+        margin-left: 0;
+      }
+
+      .lancer-box {
+        padding: 35px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#" class="brand">DIGITAL <span>WORLD</span></a>
+
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#lancer">DW Lancer</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="#contact" class="btn btn-primary">Let's Talk</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <span class="badge">DIGITAL MARKETING & DEVELOPMENT AGENCY</span>
+
+      <h1>
+        We Build Brands For The
+        <span>Digital World.</span>
+      </h1>
+
+      <p>
+        Digital World helps businesses grow online through professional websites,
+        SEO, digital marketing, paid advertising, graphic design and AI-powered automation.
+      </p>
+
+      <a href="#services" class="btn btn-primary">Explore Services</a>
+      <a href="#portfolio" class="btn btn-outline">View Portfolio</a>
+    </div>
+
+    <div class="hero-logo">
+      <img src="digital-world-logo.webp" alt="Digital World Logo">
+    </div>
+
+  </div>
+</section>
+
+
+<section id="services">
+  <div class="container">
+
+    <div class="section-title">
+      <span>What We Do</span>
+      <h2>Our Digital Services</h2>
+      <p>
+        Solutions designed to improve your online presence, generate leads and help your business grow.
+      </p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="card">
+        <div class="icon">🌐</div>
+        <h3>Website Development</h3>
+        <p>Responsive WordPress, Shopify and custom business websites focused on speed, usability and conversions.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📈</div>
+        <h3>Digital Marketing</h3>
+        <p>Strategic campaigns designed to build awareness, attract customers and increase business growth.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🔎</div>
+        <h3>SEO</h3>
+        <p>On-page, technical and content SEO strategies designed to improve organic visibility.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎯</div>
+        <h3>Google & Meta Ads</h3>
+        <p>Performance advertising campaigns focused on leads, sales and measurable returns.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎨</div>
+        <h3>Graphic Design</h3>
+        <p>Professional creatives, social posts, banners and marketing graphics for modern brands.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🤖</div>
+        <h3>AI Automation</h3>
+        <p>Automation solutions that reduce repetitive work and improve communication and business workflows.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="about" class="about">
+  <div class="container about-grid">
+
+    <div>
+      <span class="badge">ABOUT DIGITAL WORLD</span>
+
+      <h2>Helping Businesses Compete In A Digital-First World.</h2>
+
+      <p>
+        Digital World is a digital marketing and website development agency providing practical digital solutions for businesses.
+      </p>
+
+      <p>
+        We combine web development, performance marketing, SEO, design and automation to create complete digital systems instead of isolated services.
+      </p>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>360°</strong>
+        Digital Solutions
+      </div>
+
+      <div class="stat">
+        <strong>6+</strong>
+        Core Services
+      </div>
+
+      <div class="stat">
+        <strong>24/7</strong>
+        Online Presence
+      </div>
+
+      <div class="stat">
+        <strong>100%</strong>
+        Growth Focused
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="portfolio">
+  <div class="container">
+
+    <div class="section-title">
+      <span>Our Work</span>
+      <h2>Featured Projects</h2>
+      <p>
+        Selected projects and platforms developed under the Digital World ecosystem.
+      </p>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <div class="project">
+        <span>Marketplace Platform</span>
+        <h3>DW Lancer</h3>
+        <p>Freelancing marketplace designed for freelancers, clients, services and digital commerce.</p>
+      </div>
+
+      <div class="project">
+        <span>E-commerce</span>
+        <h3>Online Store Development</h3>
+        <p>Conversion-focused e-commerce stores built using modern tools and technologies.</p>
+      </div>
+
+      <div class="project">
+        <span>Marketing</span>
+        <h3>Business Growth Campaigns</h3>
+        <p>Digital advertising, social media and lead-generation campaigns for growing businesses.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div class="container">
+
+    <div class="section-title">
+      <span>Our Process</span>
+      <h2>How We Work</h2>
+    </div>
+
+    <div class="process-grid">
+
+      <div class="step">
+        <strong>01</strong>
+        <h3>Understand</h3>
+        <p>We understand your business, audience and goals.</p>
+      </div>
+
+      <div class="step">
+        <strong>02</strong>
+        <h3>Plan</h3>
+        <p>We develop a practical digital strategy.</p>
+      </div>
+
+      <div class="step">
+        <strong>03</strong>
+        <h3>Execute</h3>
+        <p>We build, design and launch the solution.</p>
+      </div>
+
+      <div class="step">
+        <strong>04</strong>
+        <h3>Grow</h3>
+        <p>We optimize performance based on results.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section id="lancer" class="lancer">
+  <div class="container">
+
+    <div class="lancer-box">
+      <span class="badge">COMING SOON</span>
+
+      <h2>Introducing DW Lancer</h2>
+
+      <p>
+        A Digital World initiative designed to connect freelancers and clients through services,
+        projects, secure transactions, professional profiles and a complete freelancing ecosystem.
+      </p>
+
+      <span class="btn btn-primary">Launching Soon</span>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="contact">
+  <div class="container">
+
+    <div class="contact-box">
+      <h2>Ready To Grow Your Business?</h2>
+
+      <p>
+        Let's discuss your website, marketing or digital growth requirements.
+      </p>
+
+      <a
+        href="https://wa.me/917983517402"
+        class="btn btn-primary"
+        target="_blank"
+      >
+        WhatsApp Digital World
+      </a>
+
+      <a href="mailto:YOUR-EMAIL@example.com" class="btn btn-outline">
+        Send Email
+      </a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+
+<footer>
+  <div class="container">
+    © 2026 Digital World. All Rights Reserved.
+  </div>
+</footer>
+
+</body>
+  </html>
